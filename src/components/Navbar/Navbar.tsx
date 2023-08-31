@@ -1,8 +1,10 @@
 import React from 'react';
+import Logo from '../Logo';
 
 function Navbar() {
   return (
-    <header data-testid="navbar-main-div">
+    <header>
+      <Logo />
       <nav>
         <a href="#services">Serviços Ofertados</a>
         <a href="#about-us">Sobre Nós</a>
