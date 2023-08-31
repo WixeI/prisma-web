@@ -1,11 +1,6 @@
 import React from "react";
-import { screen, render, within, fireEvent } from "@testing-library/react";
+import { screen, render, within } from "@testing-library/react";
 import Navbar from ".";
-
-const servicesFunction = jest.fn();
-const aboutUsFunction = jest.fn();
-const ourProcessFunction = jest.fn();
-const contactUsFunction = jest.fn();
 
 describe('Header of site', () => {
   beforeEach(() => {
@@ -21,11 +16,6 @@ describe('Header of site', () => {
     const navBar = screen.getByRole('navigation');
     expect(navBar).toBeInTheDocument();
   });
-
-  // it('display 4 anchors', () => {
-  //   const anchors = screen.getAllByRole('link');
-  //   expect(anchors).toHaveLength(4);
-  // });
 
   describe('Anchors of header', () => {
     let navBar:any;
