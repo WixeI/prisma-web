@@ -4,15 +4,36 @@ import Marquee from "@/components/Marquee";
 import Card from "@/components/Card";
 import Step from "@/components/Step";
 import Contact from "@/components/Contact";
+import { z, ZodError } from "zod";
 
-import {
-  WhatsappLogo,
-  PhoneCall,
-  InstagramLogo,
-  CaretCircleRight,
-} from "phosphor-react";
+import { WhatsappLogo, PhoneCall, InstagramLogo } from "phosphor-react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  name: z
+    .string()
+    .min(2, { message: "O nome deve ter pelo menos 2 caracteres." })
+    .max(50, { message: "O nome não pode ter mais que 50 caracteres" }),
+  email: z
+    .string()
+    .min(2, { message: "O email deve ter pelo menos 2 caracteres" })
+    .email({ message: "O endereço de e-mail não é válido." }),
+  topic: z.enum(["general", "digitalSolutions", "digitalPresence", "hotsites"]),
+  message: z
+    .string()
+    .min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." }),
+});
+
+type FormData = z.infer<typeof schema>;
 
 export default function Home() {
+  const { register, handleSubmit, formState } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {};
+
   return (
     <div className="flex flex-col bg-neutral-50 text-neutral-900">
       <Header />
@@ -392,42 +413,71 @@ export default function Home() {
                 Envie um Email
               </h2>
 
-              <form className="flex flex-col gap-4">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-4"
+              >
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <label className="flex w-full flex-col gap-2">
                     <span>Seu Nome</span>
                     <input
-                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
+                      {...register("name")}
                       type="text"
+                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
                     />
+                    {formState.errors.name && (
+                      <p className="-mt-1 ml-2 animate-slideLeftAndFade cursor-text text-sm text-rose-500">
+                        {formState.errors.name.message}
+                      </p>
+                    )}
                   </label>
 
                   <label className="flex w-full flex-col gap-2">
                     <span>Seu Email</span>
                     <input
+                      {...register("email")}
+                      type="text"
                       className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
-                      type="email"
                     />
+                    {formState.errors.email && (
+                      <p className="-mt-1 ml-2 animate-slideLeftAndFade cursor-text text-sm text-rose-500">
+                        {formState.errors.email.message}
+                      </p>
+                    )}
                   </label>
                 </div>
 
                 <label className="flex flex-col gap-2">
                   <span>Sobre o que deseja falar?</span>
                   <select
+                    {...register("topic")}
                     className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
-                    name="topic"
-                    id="topic"
                   >
-                    <option value="general">Assunto Geral</option>
+                    <option defaultChecked value="general">
+                      Assunto Geral
+                    </option>
                     <option value="digitalSolutions">Soluções Digitais</option>
                     <option value="hotsites">Hotsites</option>
                     <option value="digitalPresence">Presença Digital</option>
                   </select>
+                  {formState.errors.topic && (
+                    <p className="-mt-1 ml-2 animate-slideLeftAndFade cursor-text text-sm text-rose-500">
+                      {formState.errors.topic.message}
+                    </p>
+                  )}
                 </label>
 
                 <label className="flex flex-col gap-2">
                   <span>Sua Mensagem</span>
-                  <textarea className="min-h-[15rem] resize-y rounded-lg border border-neutral-900 px-4 py-2 text-base md:min-h-[12rem]" />
+                  <textarea
+                    {...register("message")}
+                    className="min-h-[15rem] resize-y rounded-lg border border-neutral-900 px-4 py-2 text-base md:min-h-[12rem]"
+                  />
+                  {formState.errors.message && (
+                    <p className="-mt-1 ml-2 animate-slideLeftAndFade cursor-text text-sm text-rose-500">
+                      {formState.errors.message.message}
+                    </p>
+                  )}
                 </label>
 
                 <Button type="submit">Enviar Email</Button>
