@@ -1,4 +1,10 @@
 import Header from "@/components/Header";
+import Button from "@/components/Button";
+import Marquee from "@/components/Marquee";
+import Card from "@/components/Card";
+import Step from "@/components/Step";
+import Contact from "@/components/Contact";
+
 import {
   WhatsappLogo,
   PhoneCall,
@@ -11,14 +17,14 @@ export default function Home() {
     <div className="flex flex-col bg-neutral-50 text-neutral-900">
       <Header />
       <main>
-        {/* Hero Section */}
+        {/* Hero */}
         <section className="relative flex min-h-[100svh] flex-col items-start justify-center gap-8 overflow-hidden px-16">
           <h1 className="z-10 max-w-md text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
             Construindo o Futuro Digital do seu Negócio
           </h1>
-          <button className="z-10 flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-4 py-4 text-base text-neutral-50 shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg">
+          <Button className="z-10 shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg">
             Explore Nossas Soluções
-          </button>
+          </Button>
           <picture>
             <source
               media="(min-width:1024px)"
@@ -32,103 +38,43 @@ export default function Home() {
           </picture>
         </section>
 
-        {/* TargetAudience Section */}
+        {/* TargetAudience */}
         <section className="flex flex-col items-center justify-center gap-4 overflow-x-hidden bg-neutral-900 py-6 text-neutral-50 lg:my-8">
-          {/* Marquee Top */}
-          <div className="flex select-none gap-4 overflow-x-hidden">
-            <ul className="animate-scrollPanel flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500">
-              {[
-                "Clínicas",
-                "Dentistas",
-                "Advogados",
-                "Restaurantes",
-                "Professores",
-                "Boutiques",
-                "Salões de Beleza",
-                "Arquitetos",
-                "Academias",
-                "Consultoria",
-                "Concessionárias",
-              ].map((item) => (
-                <li key={item} className="whitespace-nowrap">
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ul>
-
-            {/* Mirror Marquee */}
-            <ul
-              aria-hidden
-              className="animate-scrollPanel flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500"
-            >
-              {[
-                "Clínicas",
-                "Dentistas",
-                "Advogados",
-                "Restaurantes",
-                "Professores",
-                "Boutiques",
-                "Salões de Beleza",
-                "Arquitetos",
-                "Academias",
-                "Consultoria",
-                "Concessionárias",
-              ].map((item) => (
-                <li key={item} className="whitespace-nowrap">
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Marquee
+            itemList={[
+              "Clínicas",
+              "Dentistas",
+              "Advogados",
+              "Restaurantes",
+              "Professores",
+              "Boutiques",
+              "Salões de Beleza",
+              "Arquitetos",
+              "Academias",
+              "Consultoria",
+              "Concessionárias",
+            ]}
+          />
 
           <h1 className="px-4 text-center text-xl sm:text-2xl lg:text-3xl">
             Destinado a Empresas e Prestadores de Serviço
           </h1>
 
-          {/* Marquee Bottom */}
-          <div className="flex select-none gap-4 overflow-x-hidden">
-            <ul className="animate-scrollPanelInverse flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500">
-              {[
-                "Agências de Viagem",
-                "Construção Civil",
-                "Médicos",
-                "Instituições de Ensino",
-                "Fotógrafos",
-                "Serviços de Transporte",
-                "Hotéis",
-                "Espaços de Eventos",
-                "Oficinas Automotivas",
-                "Clubes de Esportismo",
-              ].map((item) => (
-                <li key={item} className="whitespace-nowrap">
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ul>
-
-            {/* Mirror Marquee */}
-            <ul
-              aria-hidden
-              className="animate-scrollPanelInverse flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500"
-            >
-              {[
-                "Agências de Viagem",
-                "Construção Civil",
-                "Médicos",
-                "Instituições de Ensino",
-                "Fotógrafos",
-                "Serviços de Transporte",
-                "Hotéis",
-                "Espaços de Eventos",
-                "Oficinas Automotivas",
-                "Clubes de Esportismo",
-              ].map((item) => (
-                <li key={item} className="whitespace-nowrap">
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Marquee
+            itemList={[
+              "Agências de Viagem",
+              "Construção Civil",
+              "Médicos",
+              "Instituições de Ensino",
+              "Fotógrafos",
+              "Serviços de Transporte",
+              "Hotéis",
+              "Espaços de Eventos",
+              "Oficinas Automotivas",
+              "Clubes de Esportismo",
+            ]}
+            direction="right"
+          />
         </section>
 
         {/* Services */}
@@ -165,9 +111,7 @@ export default function Home() {
                       para sua empresa.
                     </p>
                   </div>
-                  <button className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-6 py-4 text-base text-neutral-50 shadow-lg">
-                    Vamos Conversar
-                  </button>
+                  <Button className="mt-2">Vamos Conversar</Button>
                 </div>
               </div>
 
@@ -194,9 +138,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <button className="flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-6 py-4 text-base text-neutral-50 shadow-lg">
-                    Quero Divulgar Algo
-                  </button>
+                  <Button className="mt-2">Quero Divulgar Algo</Button>
                 </div>
               </div>
 
@@ -224,9 +166,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <button className="flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-6 py-4 text-base text-neutral-50 shadow-lg">
-                    Quero Me Destacar
-                  </button>
+                  <Button className="mt-2">Quero Me Destacar</Button>
                 </div>
               </div>
             </div>
@@ -304,104 +244,55 @@ export default function Home() {
             <ol className="flex flex-col gap-8 md:relative md:-translate-x-1/2">
               {/* Step 1 */}
               <div className="flex gap-3 md:gap-8">
-                {/* Card */}
-                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
-                  <h2 className="text-lg font-medium">
-                    <span aria-hidden className="text-primary-500">
-                      1.{" "}
-                    </span>
-                    Ideação
-                  </h2>
-                  <p>
-                    Batemos um papo para entender sua dificuldade e acertamos
+                <Card
+                  step="1"
+                  title="Ideação"
+                  description="Batemos um papo para entender sua dificuldade e acertamos
                     juntos a melhor solução. De repende, até soluções mais
-                    simples podem ser suficientes!
-                  </p>
-                </li>
+                    simples podem ser suficientes!"
+                />
 
-                {/* Timeline Indicator */}
-                <div className="h-44 drop-shadow-xl">
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
-                    1
-                  </div>
-                  <div className="relative left-1/2 h-56 w-[2px] -translate-x-1/2 border-l-2 border-l-primary-500"></div>
-                </div>
+                <Step step="1" />
               </div>
 
               {/* Step 2 */}
               <div className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
-                {/* Card */}
-                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
-                  <h2 className="text-lg font-medium">
-                    <span aria-hidden className="text-primary-500">
-                      2.{" "}
-                    </span>
-                    Prototipação
-                  </h2>
-                  <p>
-                    Após nossa conversa, vamos criar um protótipo da solução.
-                    Até este ponto, nada é cobrado e refinos são feitos durante
-                    trocas de ideias com você.
-                  </p>
-                </li>
+                <Card
+                  step="2"
+                  title="Prototipação"
+                  description="Após nossa conversa, vamos criar um protótipo da solução.
+                  Até este ponto, nada é cobrado e refinos são feitos durante
+                  trocas de ideias com você."
+                />
 
-                {/* Timeline Indicator */}
-                <div className="h-44 drop-shadow-xl">
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
-                    2
-                  </div>
-                  <div className="relative left-1/2 h-48 w-[2px] -translate-x-1/2 border-l-2 border-l-primary-500"></div>
-                </div>
+                <Step step="2" />
               </div>
 
               {/* Step 3 */}
               <div className="flex gap-3 md:gap-8">
-                {/* Card */}
-                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
-                  <h2 className="text-lg font-medium">
-                    <span aria-hidden className="text-primary-500">
-                      3.{" "}
-                    </span>
-                    Desenvolvimento
-                  </h2>
-                  <p>
-                    Neste ponto, já temos a ideia exata do produto que você
-                    espera. Fazemos acordos, e mãos à obra!
-                  </p>
-                </li>
+                <Card
+                  step="3"
+                  title="Desenvolvimento"
+                  description="Neste ponto, já temos a ideia exata do produto que você
+                  espera. Fazemos acordos, e mãos à obra!"
+                />
 
                 {/* Timeline Indicator */}
-                <div className="h-44 drop-shadow-xl">
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
-                    3
-                  </div>
-                  <div className="relative left-1/2 h-48 w-[2px] -translate-x-1/2 border-l-2 border-l-primary-500"></div>
-                </div>
+                <Step step="3" />
               </div>
 
               {/* Step 4 */}
               <div className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
-                {/* Card */}
-                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
-                  <h2 className="text-lg font-medium">
-                    <span aria-hidden className="text-primary-500">
-                      4.{" "}
-                    </span>
-                    Entrega
-                  </h2>
-                  <p>
-                    As entregas são incrementais durante o desenvolvimento, para
-                    você desfrutar da solução mais cedo. Ao final, também
-                    oferecemos suporte!
-                  </p>
-                </li>
+                <Card
+                  step="4"
+                  title="Entrega"
+                  description="As entregas são incrementais durante o desenvolvimento, para
+                  você desfrutar da solução mais cedo. Ao final, também
+                  oferecemos suporte!"
+                />
 
                 {/* Timeline Indicator */}
-                <div className="h-44 drop-shadow-xl">
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
-                    4
-                  </div>
-                </div>
+                <Step step="4" hasPath={false} />
               </div>
             </ol>
           </section>
@@ -465,61 +356,31 @@ export default function Home() {
               <section>
                 <h2 className="sr-only">Contatos</h2>
                 <ul className="flex flex-col gap-4">
-                  <li className="flex cursor-text items-center justify-between rounded-lg border border-neutral-50 px-4 py-2 hover:bg-primary-400 ">
-                    <div className="flex items-center gap-4">
-                      <PhoneCall
-                        className="text-neutral-50"
-                        size="1.5rem"
-                        weight="light"
-                      />
-                      <p className="sr-only">Ligação: </p>
-                      <p>(85) 9 8147-9710</p>
-                    </div>
-                    <button className="select-none rounded-lg px-4 py-2 hover:bg-primary-300">
-                      <CaretCircleRight
-                        className="text-neutral-50"
-                        size="1.5rem"
-                        weight="light"
-                      />
-                    </button>
+                  <li>
+                    <Contact
+                      Icon={PhoneCall}
+                      ariaTitle="Ligação"
+                      contact="(85) 9 8147-9710"
+                      href=""
+                    />
                   </li>
 
-                  <li className="flex cursor-text items-center justify-between rounded-lg border border-neutral-50 px-4 py-2 hover:bg-primary-400 ">
-                    <div className="flex items-center gap-4">
-                      <WhatsappLogo
-                        className="text-neutral-50"
-                        size="1.5rem"
-                        weight="light"
-                      />
-                      <p className="sr-only">WhatsApp: </p>
-                      <p>(85) 9 8147-9710</p>
-                    </div>
-                    <button className="select-none rounded-lg px-4 py-2 hover:bg-primary-300">
-                      <CaretCircleRight
-                        className="text-neutral-50"
-                        size="1.5rem"
-                        weight="light"
-                      />
-                    </button>
+                  <li>
+                    <Contact
+                      Icon={WhatsappLogo}
+                      ariaTitle="WhatsApp"
+                      contact="(85) 9 8147-9710"
+                      href=""
+                    />
                   </li>
 
-                  <li className="flex cursor-text items-center justify-between rounded-lg border border-neutral-50 px-4 py-2 hover:bg-primary-400 ">
-                    <div className="flex items-center gap-4">
-                      <InstagramLogo
-                        className="text-neutral-50"
-                        size="1.5rem"
-                        weight="light"
-                      />
-                      <p className="sr-only">Instagram: </p>
-                      <p>@prismaweb</p>
-                    </div>
-                    <button className="select-none rounded-lg px-4 py-2 hover:bg-primary-300">
-                      <CaretCircleRight
-                        className="text-neutral-50"
-                        size="1.5rem"
-                        weight="light"
-                      />
-                    </button>
+                  <li>
+                    <Contact
+                      Icon={InstagramLogo}
+                      ariaTitle="Instagram"
+                      contact="@prismaweb"
+                      href=""
+                    />
                   </li>
                 </ul>
               </section>
@@ -565,16 +426,11 @@ export default function Home() {
                 </label>
 
                 <label className="flex flex-col gap-2">
-                  <span>Seu Email</span>
+                  <span>Sua Mensagem</span>
                   <textarea className="min-h-[15rem] resize-y rounded-lg border border-neutral-900 px-4 py-2 text-base md:min-h-[12rem]" />
                 </label>
 
-                <button
-                  type="submit"
-                  className="flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-4 py-4 text-base text-neutral-50 shadow-lg"
-                >
-                  Enviar Email
-                </button>
+                <Button type="submit">Enviar Email</Button>
               </form>
             </section>
           </section>

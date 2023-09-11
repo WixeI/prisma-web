@@ -27,7 +27,7 @@ function Header() {
           Nosso Processo
         </a>
         <a
-          className="flex items-center justify-center gap-2 rounded-lg border-2 border-neutral-50 px-3 py-2 transition-all hover:-translate-y-1 lg:drop-shadow-[0px_1px_4px_rgba(0,0,0,1)]"
+          className="flex items-center justify-center gap-2 rounded-lg border-2 border-neutral-50 px-3 py-2 transition-all hover:bg-neutral-900/20 lg:drop-shadow-[0px_1px_4px_rgba(0,0,0,1)]"
           href="#contact-us"
         >
           Entre em Contato
