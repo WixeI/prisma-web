@@ -44,8 +44,8 @@ const config: Config = {
         },
       },
       animation: {
-        scrollPanel: "scrollPanel 80s linear infinite alternate",
-        scrollPanelInverse: "scrollPanelInverse 80s linear infinite alternate",
+        scrollPanel: "scrollPanel 80s linear infinite",
+        scrollPanelInverse: "scrollPanelInverse 80s linear infinite",
         slideLeftAndFade:
           "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
       },

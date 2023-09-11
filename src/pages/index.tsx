@@ -20,9 +20,12 @@ export default function Home() {
             Explore Nossas Soluções
           </button>
           <picture>
-            <source media="(min-width:1024px)" srcSet="/hero.png" />
+            <source
+              media="(min-width:1024px)"
+              srcSet="/hero/hero-desktop.png"
+            />
             <img
-              src="/hero2.png"
+              src="/hero/hero-mobile.png"
               alt=""
               className="absolute bottom-40 left-0 h-full max-w-none -rotate-12 rounded-[2rem] object-cover object-center shadow-[0px_4px_8px_rgba(0,0,0,0.5)] drop-shadow-[-16px_32px_0px_#DE2D59] md:translate-x-6 lg:left-1/3 lg:translate-x-28 lg:brightness-150"
             />
@@ -40,8 +43,6 @@ export default function Home() {
                 "Advogados",
                 "Restaurantes",
                 "Professores",
-                "Consultoria",
-                "Concessionárias",
                 "Boutiques",
                 "Salões de Beleza",
                 "Arquitetos",
@@ -142,7 +143,7 @@ export default function Home() {
               {/* DigitalSolutions */}
               <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none">
                 <img
-                  src="/digital-solutions.svg"
+                  src="/services/digital-solutions.svg"
                   alt=""
                   className="max-h-32 md:max-h-max md:max-w-[240px]"
                 />
@@ -173,7 +174,7 @@ export default function Home() {
               {/* Hotsites */}
               <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row-reverse md:border-none md:bg-transparent md:shadow-none">
                 <img
-                  src="/hotsites.svg"
+                  src="/services/hotsites.svg"
                   alt=""
                   className="max-h-32 md:max-h-max md:max-w-[240px]"
                 />
@@ -202,7 +203,7 @@ export default function Home() {
               {/* DigitalPresence */}
               <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none">
                 <img
-                  src="/digital-presence.svg"
+                  src="/services/digital-presence.svg"
                   alt=""
                   className="max-h-32 md:max-h-max md:max-w-[240px]"
                 />
@@ -234,13 +235,13 @@ export default function Home() {
           {/* Background */}
           <div className="select-none">
             <img
-              src="/triangle-primary-50.svg"
+              src="/misc/triangle-primary-50.svg"
               alt=""
               className="absolute -left-20 top-8 -rotate-45 md:scale-150"
             />
 
             <img
-              src="/triangle-primary-50.svg"
+              src="/misc/triangle-primary-50.svg"
               alt=""
               className="absolute -right-20 bottom-1/3 -rotate-45 md:scale-150"
             />
@@ -272,7 +273,7 @@ export default function Home() {
             </div>
             {/* Todo: Get wide Image for Mobile and use Picture */}
             <img
-              src="/values.png"
+              src="/values/values.png"
               alt=""
               className="z-10 -order-1 mx-auto w-full max-w-sm rounded-lg object-cover object-center shadow-lg drop-shadow-[-8px_8px_0px_#DE2D59] md:order-none md:aspect-[1/1.25] md:w-52 md:drop-shadow-[8px_8px_0px_#DE2D59]"
             />
@@ -280,7 +281,7 @@ export default function Home() {
 
           {/* Background */}
           <img
-            src="/lightbulb.svg"
+            src="/misc/lightbulb.svg"
             alt=""
             className="absolute left-0 top-0 hidden -translate-x-1/2 select-none md:block"
           />
@@ -290,7 +291,7 @@ export default function Home() {
         <div className="relative overflow-x-hidden bg-neutral-100">
           {/* Background */}
           <img
-            src="/arrow-bg-neutral-50.svg"
+            src="/misc/arrow-bg-neutral-50.svg"
             alt=""
             className="w-full select-none"
           />
@@ -408,33 +409,33 @@ export default function Home() {
           {/* Background */}
           <div className="select-none">
             <img
-              src="/triangle-neutral-50.svg"
+              src="/misc/triangle-neutral-50.svg"
               alt=""
               className="absolute -right-12 top-1/3 -translate-y-1/2 -rotate-12 scale-150"
             />
             <img
-              src="/triangle-neutral-50.svg"
+              src="/misc/triangle-neutral-50.svg"
               alt=""
               className="absolute -left-12 top-1/2 rotate-12"
             />
 
             <img
-              src="/triangle-primary-500.svg"
+              src="/misc/triangle-primary-500.svg"
               alt=""
               className="absolute bottom-8 left-1/3 -translate-x-[300%] -rotate-6"
             />
             <img
-              src="/triangle-primary-500.svg"
+              src="/misc/triangle-primary-500.svg"
               alt=""
               className="absolute bottom-0 left-1/3 -translate-x-[150%] rotate-6 scale-75"
             />
             <img
-              src="/triangle-primary-500.svg"
+              src="/misc/triangle-primary-500.svg"
               alt=""
               className="absolute bottom-8 right-1/3 translate-x-[300%] rotate-12"
             />
             <img
-              src="/triangle-primary-500.svg"
+              src="/misc/triangle-primary-500.svg"
               alt=""
               className="absolute bottom-4 right-1/3 translate-x-[150%] -rotate-12 scale-75"
             />
@@ -445,7 +446,7 @@ export default function Home() {
         <div className="bg-primary-500">
           {/* Background */}
           <img
-            src="/arrow-bg-neutral-100.svg"
+            src="/misc/arrow-bg-neutral-100.svg"
             alt=""
             className="w-full select-none"
           />
@@ -583,7 +584,7 @@ export default function Home() {
       {/* Footer */}
       <div className="bg-primary-500">
         <img
-          src="/arrow-up-bg-neutral-900.svg"
+          src="/misc/arrow-up-bg-neutral-900.svg"
           alt=""
           className="w-full select-none"
         />
