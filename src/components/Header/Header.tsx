@@ -45,7 +45,7 @@ function Header() {
         <Popover.Portal>
           <Popover.Content
             sideOffset={16}
-            className="data-[state=open]:animate-slideLeftAndFade relative z-50 flex flex-col gap-4 rounded-lg rounded-r-none bg-neutral-50 p-4 text-neutral-900 shadow-[0px_8px_4px_rgba(0,0,0,0.25)] lg:hidden"
+            className="relative z-50 flex flex-col gap-4 rounded-lg rounded-r-none bg-neutral-50 p-4 text-neutral-900 shadow-[0px_8px_4px_rgba(0,0,0,0.25)] data-[state=open]:animate-slideLeftAndFade lg:hidden"
           >
             <Popover.Close aria-label="Fechar" className="sr-only">
               <X size="1.5rem" />

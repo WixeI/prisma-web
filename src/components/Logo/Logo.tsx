@@ -1,6 +1,6 @@
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import logo from "public/Logo.svg";
-import { FC, ImgHTMLAttributes } from "react";
+import { FC } from "react";
 
 type Props = {
   className?: string;
