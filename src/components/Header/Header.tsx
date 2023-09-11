@@ -1,12 +1,21 @@
 import React from "react";
-import Logo from "../Logo";
 import * as Popover from "@radix-ui/react-popover";
 import { List, X } from "phosphor-react";
 
 function Header() {
   return (
-    <header className="absolute z-10 flex w-full items-center justify-between px-8 py-1 lg:px-20">
-      <Logo className="h-10 w-auto lg:h-14" />
+    <header className="absolute z-10 flex w-full items-center justify-between px-8 py-2 lg:px-20">
+      <picture>
+        {/* Logo */}
+        <h1>
+          <picture>
+            <source media="(min-width:1024px)" srcSet="/logo.svg" />
+            <img src="/logo-dark.svg" alt="" className="h-10 w-auto lg:h-14" />
+          </picture>
+          <span className="sr-only">Prisma Web</span>
+        </h1>
+      </picture>
+
       <nav className="hidden items-center gap-8 text-neutral-50 lg:flex">
         <a
           className="rounded-lg px-4 py-2 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
