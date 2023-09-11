@@ -22,8 +22,35 @@ const config: Config = {
           900: "#7F1846",
         },
       },
+      dropShadow: {
+        "primary-sm": "-16px 32px 0px 0px #DE2D59",
+        "4xl": [
+          "0 35px 35px rgba(0, 0, 0, 0.25)",
+          "0 45px 65px rgba(0, 0, 0, 0.15)",
+        ],
+      },
+      keyframes: {
+        scrollPanel: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        scrollPanelInverse: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        slideLeftAndFade: {
+          from: { opacity: "0", transform: "translateX(2px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        scrollPanel: "scrollPanel 80s linear infinite alternate",
+        scrollPanelInverse: "scrollPanelInverse 80s linear infinite alternate",
+        slideLeftAndFade:
+          "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animation-delay")],
 };
 export default config;

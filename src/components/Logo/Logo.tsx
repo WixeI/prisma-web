@@ -1,13 +1,23 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import logo from "public/Logo.svg";
+import { FC, ImgHTMLAttributes } from "react";
 
-function Logo() {
+type Props = {
+  className?: string;
+};
+
+const Logo: FC<Props> = ({ className }) => {
   return (
     <h1>
-      <Image src={logo} alt="" className="h-14" data-testid="navbar-logo-image" />
+      <Image
+        src={logo}
+        alt=""
+        className={` ${className}`}
+        data-testid="navbar-logo-image"
+      />
       <span className="sr-only">Prisma Web</span>
     </h1>
   );
-}
+};
 
 export default Logo;

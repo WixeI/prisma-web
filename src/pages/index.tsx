@@ -1,11 +1,596 @@
 import Header from "@/components/Header";
+import {
+  WhatsappLogo,
+  PhoneCall,
+  InstagramLogo,
+  CaretCircleRight,
+} from "phosphor-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col bg-primary-200">
+    <div className="flex flex-col bg-neutral-50 text-neutral-900">
       <Header />
-      <main></main>
-      <footer></footer>
+      <main>
+        {/* Hero Section */}
+        <section className="relative flex min-h-[100svh] flex-col items-start justify-center gap-8 overflow-hidden px-16">
+          <h1 className="z-10 max-w-md text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
+            Construindo o Futuro Digital do seu Negócio
+          </h1>
+          <button className="z-10 flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-4 py-4 text-base text-neutral-50 shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg">
+            Explore Nossas Soluções
+          </button>
+          <picture>
+            <source media="(min-width:1024px)" srcSet="/hero.png" />
+            <img
+              src="/hero2.png"
+              alt=""
+              className="absolute bottom-40 left-0 h-full max-w-none -rotate-12 rounded-[2rem] object-cover object-center shadow-[0px_4px_8px_rgba(0,0,0,0.5)] drop-shadow-[-16px_32px_0px_#DE2D59] md:translate-x-6 lg:left-1/3 lg:translate-x-28 lg:brightness-150"
+            />
+          </picture>
+        </section>
+
+        {/* TargetAudience Section */}
+        <section className="flex flex-col items-center justify-center gap-4 overflow-x-hidden bg-neutral-900 py-6 text-neutral-50 lg:my-8">
+          {/* Marquee Top */}
+          <div className="flex select-none gap-4 overflow-x-hidden">
+            <ul className="animate-scrollPanel flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500">
+              {[
+                "Clínicas",
+                "Dentistas",
+                "Advogados",
+                "Restaurantes",
+                "Professores",
+                "Consultoria",
+                "Concessionárias",
+                "Boutiques",
+                "Salões de Beleza",
+                "Arquitetos",
+                "Academias",
+                "Consultoria",
+                "Concessionárias",
+              ].map((item) => (
+                <li key={item} className="whitespace-nowrap">
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
+
+            {/* Mirror Marquee */}
+            <ul
+              aria-hidden
+              className="animate-scrollPanel flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500"
+            >
+              {[
+                "Clínicas",
+                "Dentistas",
+                "Advogados",
+                "Restaurantes",
+                "Professores",
+                "Boutiques",
+                "Salões de Beleza",
+                "Arquitetos",
+                "Academias",
+                "Consultoria",
+                "Concessionárias",
+              ].map((item) => (
+                <li key={item} className="whitespace-nowrap">
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <h1 className="px-4 text-center text-xl sm:text-2xl lg:text-3xl">
+            Destinado a Empresas e Prestadores de Serviço
+          </h1>
+
+          {/* Marquee Bottom */}
+          <div className="flex select-none gap-4 overflow-x-hidden">
+            <ul className="animate-scrollPanelInverse flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500">
+              {[
+                "Agências de Viagem",
+                "Construção Civil",
+                "Médicos",
+                "Instituições de Ensino",
+                "Fotógrafos",
+                "Serviços de Transporte",
+                "Hotéis",
+                "Espaços de Eventos",
+                "Oficinas Automotivas",
+                "Clubes de Esportismo",
+              ].map((item) => (
+                <li key={item} className="whitespace-nowrap">
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
+
+            {/* Mirror Marquee */}
+            <ul
+              aria-hidden
+              className="animate-scrollPanelInverse flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500"
+            >
+              {[
+                "Agências de Viagem",
+                "Construção Civil",
+                "Médicos",
+                "Instituições de Ensino",
+                "Fotógrafos",
+                "Serviços de Transporte",
+                "Hotéis",
+                "Espaços de Eventos",
+                "Oficinas Automotivas",
+                "Clubes de Esportismo",
+              ].map((item) => (
+                <li key={item} className="whitespace-nowrap">
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Services */}
+        <div className="relative overflow-x-hidden">
+          <section className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-8 px-4 py-8 md:gap-16 md:py-16">
+            <h1 className="text-3xl font-bold md:text-4xl md:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
+              Serviços Oferecidos
+            </h1>
+
+            {/* Options */}
+            <div className="flex flex-col gap-12 md:gap-16">
+              {/* DigitalSolutions */}
+              <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none">
+                <img
+                  src="/digital-solutions.svg"
+                  alt=""
+                  className="max-h-32 md:max-h-max md:max-w-[240px]"
+                />
+                <div className="flex flex-col items-center justify-center gap-4 text-start md:items-start md:text-start">
+                  <h2 className="text-2xl font-semibold md:text-3xl">
+                    Soluções Digitais
+                  </h2>
+
+                  <div className="flex flex-col gap-1 text-lg">
+                    <p>
+                      O sistema que usa não atende a todas as suas necessidades?
+                    </p>
+                    <p>
+                      Sente que certos processos poderiam ser mais eficientes?
+                    </p>
+                    <p>
+                      Traga-os e criaremos produtos especializados para
+                      solucionar estes problemas e trazer a melhor experiência
+                      para sua empresa.
+                    </p>
+                  </div>
+                  <button className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-6 py-4 text-base text-neutral-50 shadow-lg">
+                    Vamos Conversar
+                  </button>
+                </div>
+              </div>
+
+              {/* Hotsites */}
+              <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row-reverse md:border-none md:bg-transparent md:shadow-none">
+                <img
+                  src="/hotsites.svg"
+                  alt=""
+                  className="max-h-32 md:max-h-max md:max-w-[240px]"
+                />
+                <div className="flex flex-col items-center justify-center gap-4 text-start md:items-start md:text-start">
+                  <h2 className="text-2xl font-semibold md:text-3xl">
+                    Hotsites
+                  </h2>
+
+                  <div className="flex flex-col gap-1 text-lg">
+                    <p>
+                      Sites rápidos utilizados para divulgar produtos ou
+                      eventos.
+                    </p>
+                    <p>
+                      Costumam ter tempo limitado, sendo muito comuns em
+                      campanhas publicitárias.
+                    </p>
+                  </div>
+
+                  <button className="flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-6 py-4 text-base text-neutral-50 shadow-lg">
+                    Quero Divulgar Algo
+                  </button>
+                </div>
+              </div>
+
+              {/* DigitalPresence */}
+              <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none">
+                <img
+                  src="/digital-presence.svg"
+                  alt=""
+                  className="max-h-32 md:max-h-max md:max-w-[240px]"
+                />
+                <div className="flex flex-col items-center justify-center gap-4 text-start md:items-start md:text-start">
+                  <h2 className="text-2xl font-semibold md:text-3xl">
+                    Presença Digital
+                  </h2>
+
+                  <div className="flex flex-col gap-1 text-lg">
+                    <p>
+                      Sua marca precisa de um endereço digital para trazer
+                      legitimidade e senso de confiança para o cliente.
+                    </p>
+                    <p>
+                      Um site institucional ou landing page é ideal, e é o
+                      diferencial para empresas que possuem presença apenas em
+                      redes sociais.
+                    </p>
+                  </div>
+
+                  <button className="flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-6 py-4 text-base text-neutral-50 shadow-lg">
+                    Quero Me Destacar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Background */}
+          <div className="select-none">
+            <img
+              src="/triangle-primary-50.svg"
+              alt=""
+              className="absolute -left-20 top-8 -rotate-45 md:scale-150"
+            />
+
+            <img
+              src="/triangle-primary-50.svg"
+              alt=""
+              className="absolute -right-20 bottom-1/3 -rotate-45 md:scale-150"
+            />
+          </div>
+        </div>
+
+        {/* Values */}
+        <div className="relative">
+          <section className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-8 md:flex-row md:py-12">
+            <div className="z-10 flex flex-col items-center gap-4 text-center md:items-start md:gap-8 md:text-start">
+              <h1 className="text-3xl font-semibold md:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
+                Transparência e Modernidade
+              </h1>
+              <div>
+                <p className="text-lg">
+                  Somos uma empresa que visa a solução que mais se adapta a
+                  nossos clientes, e não vamos hesitar em sugerir caso produtos
+                  já existentes resolvam seu problema!
+                </p>
+                <br />
+                <p className="text-lg">
+                  Além disso, utilizamos de código e design 100% feito sob
+                  medida para seu negócio, para que tenha identidade própria e{" "}
+                  <span className="font-medium text-primary-500">
+                    se destaque na multidão!
+                  </span>
+                </p>
+              </div>
+            </div>
+            {/* Todo: Get wide Image for Mobile and use Picture */}
+            <img
+              src="/values.png"
+              alt=""
+              className="z-10 -order-1 mx-auto w-full max-w-sm rounded-lg object-cover object-center shadow-lg drop-shadow-[-8px_8px_0px_#DE2D59] md:order-none md:aspect-[1/1.25] md:w-52 md:drop-shadow-[8px_8px_0px_#DE2D59]"
+            />
+          </section>
+
+          {/* Background */}
+          <img
+            src="/lightbulb.svg"
+            alt=""
+            className="absolute left-0 top-0 hidden -translate-x-1/2 select-none md:block"
+          />
+        </div>
+
+        {/* Process */}
+        <div className="relative overflow-x-hidden bg-neutral-100">
+          {/* Background */}
+          <img
+            src="/arrow-bg-neutral-50.svg"
+            alt=""
+            className="w-full select-none"
+          />
+
+          {/* Content */}
+          <section className="-100 relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 pb-32 pt-8 md:gap-12 md:pb-48 md:pt-12">
+            <h1 className="text-2xl font-semibold md:text-4xl md:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
+              Nosso Processo
+            </h1>
+            <ol className="flex flex-col gap-8 md:relative md:-translate-x-1/2">
+              {/* Step 1 */}
+              <div className="flex gap-3 md:gap-8">
+                {/* Card */}
+                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
+                  <h2 className="text-lg font-medium">
+                    <span aria-hidden className="text-primary-500">
+                      1.{" "}
+                    </span>
+                    Ideação
+                  </h2>
+                  <p>
+                    Batemos um papo para entender sua dificuldade e acertamos
+                    juntos a melhor solução. De repende, até soluções mais
+                    simples podem ser suficientes!
+                  </p>
+                </li>
+
+                {/* Timeline Indicator */}
+                <div className="h-44 drop-shadow-xl">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
+                    1
+                  </div>
+                  <div className="relative left-1/2 h-56 w-[2px] -translate-x-1/2 border-l-2 border-l-primary-500"></div>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
+                {/* Card */}
+                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
+                  <h2 className="text-lg font-medium">
+                    <span aria-hidden className="text-primary-500">
+                      2.{" "}
+                    </span>
+                    Prototipação
+                  </h2>
+                  <p>
+                    Após nossa conversa, vamos criar um protótipo da solução.
+                    Até este ponto, nada é cobrado e refinos são feitos durante
+                    trocas de ideias com você.
+                  </p>
+                </li>
+
+                {/* Timeline Indicator */}
+                <div className="h-44 drop-shadow-xl">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
+                    2
+                  </div>
+                  <div className="relative left-1/2 h-48 w-[2px] -translate-x-1/2 border-l-2 border-l-primary-500"></div>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex gap-3 md:gap-8">
+                {/* Card */}
+                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
+                  <h2 className="text-lg font-medium">
+                    <span aria-hidden className="text-primary-500">
+                      3.{" "}
+                    </span>
+                    Desenvolvimento
+                  </h2>
+                  <p>
+                    Neste ponto, já temos a ideia exata do produto que você
+                    espera. Fazemos acordos, e mãos à obra!
+                  </p>
+                </li>
+
+                {/* Timeline Indicator */}
+                <div className="h-44 drop-shadow-xl">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
+                    3
+                  </div>
+                  <div className="relative left-1/2 h-48 w-[2px] -translate-x-1/2 border-l-2 border-l-primary-500"></div>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
+                {/* Card */}
+                <li className="flex max-w-xs flex-col gap-2 rounded-lg bg-neutral-50 p-4 shadow-md drop-shadow-[-6px_8px_0px_#DE2D59]">
+                  <h2 className="text-lg font-medium">
+                    <span aria-hidden className="text-primary-500">
+                      4.{" "}
+                    </span>
+                    Entrega
+                  </h2>
+                  <p>
+                    As entregas são incrementais durante o desenvolvimento, para
+                    você desfrutar da solução mais cedo. Ao final, também
+                    oferecemos suporte!
+                  </p>
+                </li>
+
+                {/* Timeline Indicator */}
+                <div className="h-44 drop-shadow-xl">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary-500 bg-neutral-50 text-lg font-semibold text-primary-500 ">
+                    4
+                  </div>
+                </div>
+              </div>
+            </ol>
+          </section>
+
+          {/* Background */}
+          <div className="select-none">
+            <img
+              src="/triangle-neutral-50.svg"
+              alt=""
+              className="absolute -right-12 top-1/3 -translate-y-1/2 -rotate-12 scale-150"
+            />
+            <img
+              src="/triangle-neutral-50.svg"
+              alt=""
+              className="absolute -left-12 top-1/2 rotate-12"
+            />
+
+            <img
+              src="/triangle-primary-500.svg"
+              alt=""
+              className="absolute bottom-8 left-1/3 -translate-x-[300%] -rotate-6"
+            />
+            <img
+              src="/triangle-primary-500.svg"
+              alt=""
+              className="absolute bottom-0 left-1/3 -translate-x-[150%] rotate-6 scale-75"
+            />
+            <img
+              src="/triangle-primary-500.svg"
+              alt=""
+              className="absolute bottom-8 right-1/3 translate-x-[300%] rotate-12"
+            />
+            <img
+              src="/triangle-primary-500.svg"
+              alt=""
+              className="absolute bottom-4 right-1/3 translate-x-[150%] -rotate-12 scale-75"
+            />
+          </div>
+        </div>
+
+        {/* Contact */}
+        <div className="bg-primary-500">
+          {/* Background */}
+          <img
+            src="/arrow-bg-neutral-100.svg"
+            alt=""
+            className="w-full select-none"
+          />
+
+          {/* Content */}
+          <section className="mx-auto flex max-w-5xl flex-col justify-center gap-12 px-4 py-12 text-neutral-50 md:flex-row">
+            {/* Contacts Section */}
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-4">
+                <h1 className="text-3xl font-bold md:drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)]">
+                  Vamos Construir Juntos?
+                </h1>
+                <p>Preencha o formulário ou entre em contato via:</p>
+              </div>
+
+              <section>
+                <h2 className="sr-only">Contatos</h2>
+                <ul className="flex flex-col gap-4">
+                  <li className="flex cursor-text items-center justify-between rounded-lg border border-neutral-50 px-4 py-2 hover:bg-primary-400 ">
+                    <div className="flex items-center gap-4">
+                      <PhoneCall
+                        className="text-neutral-50"
+                        size="1.5rem"
+                        weight="light"
+                      />
+                      <p className="sr-only">Ligação: </p>
+                      <p>(85) 9 8147-9710</p>
+                    </div>
+                    <button className="select-none rounded-lg px-4 py-2 hover:bg-primary-300">
+                      <CaretCircleRight
+                        className="text-neutral-50"
+                        size="1.5rem"
+                        weight="light"
+                      />
+                    </button>
+                  </li>
+
+                  <li className="flex cursor-text items-center justify-between rounded-lg border border-neutral-50 px-4 py-2 hover:bg-primary-400 ">
+                    <div className="flex items-center gap-4">
+                      <WhatsappLogo
+                        className="text-neutral-50"
+                        size="1.5rem"
+                        weight="light"
+                      />
+                      <p className="sr-only">WhatsApp: </p>
+                      <p>(85) 9 8147-9710</p>
+                    </div>
+                    <button className="select-none rounded-lg px-4 py-2 hover:bg-primary-300">
+                      <CaretCircleRight
+                        className="text-neutral-50"
+                        size="1.5rem"
+                        weight="light"
+                      />
+                    </button>
+                  </li>
+
+                  <li className="flex cursor-text items-center justify-between rounded-lg border border-neutral-50 px-4 py-2 hover:bg-primary-400 ">
+                    <div className="flex items-center gap-4">
+                      <InstagramLogo
+                        className="text-neutral-50"
+                        size="1.5rem"
+                        weight="light"
+                      />
+                      <p className="sr-only">Instagram: </p>
+                      <p>@prismaweb</p>
+                    </div>
+                    <button className="select-none rounded-lg px-4 py-2 hover:bg-primary-300">
+                      <CaretCircleRight
+                        className="text-neutral-50"
+                        size="1.5rem"
+                        weight="light"
+                      />
+                    </button>
+                  </li>
+                </ul>
+              </section>
+            </div>
+
+            {/* Form Section */}
+            <section className="flex flex-col gap-4 rounded-lg bg-neutral-50 p-6 text-neutral-900 md:w-3/5">
+              <h2 className="text-2xl font-medium text-primary-500">
+                Envie um Email
+              </h2>
+
+              <form className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <label className="flex w-full flex-col gap-2">
+                    <span>Seu Nome</span>
+                    <input
+                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
+                      type="text"
+                    />
+                  </label>
+
+                  <label className="flex w-full flex-col gap-2">
+                    <span>Seu Email</span>
+                    <input
+                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
+                      type="email"
+                    />
+                  </label>
+                </div>
+
+                <label className="flex flex-col gap-2">
+                  <span>Sobre o que deseja falar?</span>
+                  <select
+                    className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
+                    name="topic"
+                    id="topic"
+                  >
+                    <option value="general">Assunto Geral</option>
+                    <option value="digitalSolutions">Soluções Digitais</option>
+                    <option value="hotsites">Hotsites</option>
+                    <option value="digitalPresence">Presença Digital</option>
+                  </select>
+                </label>
+
+                <label className="flex flex-col gap-2">
+                  <span>Seu Email</span>
+                  <textarea className="min-h-[15rem] resize-y rounded-lg border border-neutral-900 px-4 py-2 text-base md:min-h-[12rem]" />
+                </label>
+
+                <button
+                  type="submit"
+                  className="flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-4 py-4 text-base text-neutral-50 shadow-lg"
+                >
+                  Enviar Email
+                </button>
+              </form>
+            </section>
+          </section>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <div className="bg-primary-500">
+        <img
+          src="/arrow-up-bg-neutral-900.svg"
+          alt=""
+          className="w-full select-none"
+        />
+        <footer className="flex items-center justify-center bg-neutral-900 py-8 text-neutral-50">
+          <p>Prisma Web • 2023</p>
+        </footer>
+      </div>
     </div>
   );
 }
