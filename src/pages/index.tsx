@@ -4,10 +4,10 @@ import Marquee from "@/components/Marquee";
 import Card from "@/components/Card";
 import Step from "@/components/Step";
 import Contact from "@/components/Contact";
-import SendButton from "@/components/SendButton";
+// import SendButton from "@/components/SendButton";
 
 import { z } from "zod";
-import { WhatsappLogo, PhoneCall, InstagramLogo } from "phosphor-react";
+import { WhatsappLogo, PhoneCall } from "phosphor-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRef } from "react";
@@ -418,7 +418,7 @@ export default function Home() {
                       Icon={PhoneCall}
                       ariaTitle="Ligação"
                       contact="(85) 9 8147-9710"
-                      href=""
+                      href="tel:+85981479710"
                     />
                   </li>
 
@@ -427,16 +427,7 @@ export default function Home() {
                       Icon={WhatsappLogo}
                       ariaTitle="WhatsApp"
                       contact="(85) 9 8147-9710"
-                      href=""
-                    />
-                  </li>
-
-                  <li>
-                    <Contact
-                      Icon={InstagramLogo}
-                      ariaTitle="Instagram"
-                      contact="@prismaweb"
-                      href=""
+                      href="https://api.whatsapp.com/send?phone=5585981479710"
                     />
                   </li>
                 </ul>
@@ -521,7 +512,7 @@ export default function Home() {
 
                 <Button type="submit">Enviar Email</Button>
               </form>
-              <SendButton />
+              {/* <SendButton /> */}
             </section>
           </section>
         </div>

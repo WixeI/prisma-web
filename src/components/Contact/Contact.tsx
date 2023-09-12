@@ -19,17 +19,18 @@ const Contact: FC<Props> = ({ Icon, ariaTitle, contact, href }) => {
       </div>
 
       <Button
+        as="a"
         size="sm"
         variant="link"
         className="select-none shadow-none hover:bg-primary-300/100"
+        href={href}
+        target="_blank"
       >
-        <a href={href}>
-          <CaretCircleRight
-            className="text-neutral-50"
-            size="1.5rem"
-            weight="light"
-          />
-        </a>
+        <CaretCircleRight
+          className="text-neutral-50"
+          size="1.5rem"
+          weight="light"
+        />
       </Button>
     </div>
   );
