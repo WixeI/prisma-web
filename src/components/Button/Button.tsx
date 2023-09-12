@@ -1,23 +1,29 @@
-import { FC, ReactNode, ButtonHTMLAttributes } from "react";
 import { cva } from "class-variance-authority";
 import { style as styled } from "../../utils/style-cva";
 
-type Props = {
-  children: ReactNode;
+type ComponentProps<C extends React.ElementType> = {
+  as?: C;
   variant?: "solid" | "outline" | "link";
   size?: "sm" | "md" | "lg";
   className?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+};
 
-const Button: FC<Props> = ({
-  children,
+type Props<C extends React.ElementType> = React.PropsWithChildren<
+  ComponentProps<C>
+> &
+  React.ComponentPropsWithoutRef<C>;
+
+const Button = <C extends React.ElementType = "button">({
   variant,
   size,
   className,
+  as,
+  children,
   ...props
-}) => {
+}: Props<C>) => {
+  const Root = as || "button";
   return (
-    <button
+    <Root
       className={
         styled(
           { variant, size },
@@ -56,10 +62,8 @@ const Button: FC<Props> = ({
       {...props}
     >
       {children}
-    </button>
+    </Root>
   );
 };
 
 export default Button;
-
-// className="z-10 flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-4 py-4 text-base text-neutral-50 shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg"

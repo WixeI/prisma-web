@@ -4,11 +4,13 @@ import Marquee from "@/components/Marquee";
 import Card from "@/components/Card";
 import Step from "@/components/Step";
 import Contact from "@/components/Contact";
-import { z, ZodError } from "zod";
+import SendButton from "@/components/SendButton";
 
+import { z } from "zod";
 import { WhatsappLogo, PhoneCall, InstagramLogo } from "phosphor-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRef } from "react";
 
 const schema = z.object({
   name: z
@@ -28,11 +30,20 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function Home() {
-  const { register, handleSubmit, formState } = useForm<FormData>({
+  const { register, handleSubmit, formState, setValue } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
+  const formRef = useRef<HTMLDivElement>(null);
+
   const onSubmit: SubmitHandler<FormData> = (data) => {};
+
+  const changeFormTopic = (topic: FormData["topic"]) => {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+    setValue("topic", topic);
+  };
 
   return (
     <div className="flex flex-col bg-neutral-50 text-neutral-900">
@@ -43,7 +54,11 @@ export default function Home() {
           <h1 className="z-10 max-w-md text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
             Construindo o Futuro Digital do seu Negócio
           </h1>
-          <Button className="z-10 shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg">
+          <Button
+            as="a"
+            href="#services"
+            className="z-10 shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg"
+          >
             Explore Nossas Soluções
           </Button>
           <picture>
@@ -60,7 +75,10 @@ export default function Home() {
         </section>
 
         {/* TargetAudience */}
-        <section className="flex flex-col items-center justify-center gap-4 overflow-x-hidden bg-neutral-900 py-6 text-neutral-50 lg:my-8">
+        <section
+          id="target-audience"
+          className="flex flex-col items-center justify-center gap-4 overflow-x-hidden bg-neutral-900 py-6 text-neutral-50 lg:my-8"
+        >
           <Marquee
             itemList={[
               "Clínicas",
@@ -99,7 +117,7 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <div className="relative overflow-x-hidden">
+        <div id="services" className="relative overflow-x-hidden">
           <section className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-8 px-4 py-8 md:gap-16 md:py-16">
             <h1 className="text-3xl font-bold md:text-4xl md:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
               Serviços Oferecidos
@@ -132,7 +150,13 @@ export default function Home() {
                       para sua empresa.
                     </p>
                   </div>
-                  <Button className="mt-2">Vamos Conversar</Button>
+                  <Button
+                    as="a"
+                    onClick={() => changeFormTopic("digitalSolutions")}
+                    className="mt-2"
+                  >
+                    Vamos Conversar
+                  </Button>
                 </div>
               </div>
 
@@ -159,7 +183,13 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <Button className="mt-2">Quero Divulgar Algo</Button>
+                  <Button
+                    as="a"
+                    onClick={() => changeFormTopic("hotsites")}
+                    className="mt-2"
+                  >
+                    Quero Divulgar Algo
+                  </Button>
                 </div>
               </div>
 
@@ -187,7 +217,13 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <Button className="mt-2">Quero Me Destacar</Button>
+                  <Button
+                    as="a"
+                    onClick={() => changeFormTopic("digitalPresence")}
+                    className="mt-2"
+                  >
+                    Quero Me Destacar
+                  </Button>
                 </div>
               </div>
             </div>
@@ -210,7 +246,7 @@ export default function Home() {
         </div>
 
         {/* Values */}
-        <div className="relative">
+        <div id="values" className="relative">
           <section className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-8 md:flex-row md:py-12">
             <div className="z-10 flex flex-col items-center gap-4 text-center md:items-start md:gap-8 md:text-start">
               <h1 className="text-3xl font-semibold md:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
@@ -249,7 +285,7 @@ export default function Home() {
         </div>
 
         {/* Process */}
-        <div className="relative overflow-x-hidden bg-neutral-100">
+        <div id="process" className="relative overflow-x-hidden bg-neutral-100">
           {/* Background */}
           <img
             src="/misc/arrow-bg-neutral-50.svg"
@@ -355,7 +391,7 @@ export default function Home() {
         </div>
 
         {/* Contact */}
-        <div className="bg-primary-500">
+        <div id="contact" className="bg-primary-500" ref={formRef}>
           {/* Background */}
           <img
             src="/misc/arrow-bg-neutral-100.svg"
@@ -408,7 +444,10 @@ export default function Home() {
             </div>
 
             {/* Form Section */}
-            <section className="flex flex-col gap-4 rounded-lg bg-neutral-50 p-6 text-neutral-900 md:w-3/5">
+            <section
+              id="contact-form"
+              className="flex flex-col gap-4 rounded-lg bg-neutral-50 p-6 text-neutral-900 md:w-3/5"
+            >
               <h2 className="text-2xl font-medium text-primary-500">
                 Envie um Email
               </h2>
@@ -482,6 +521,7 @@ export default function Home() {
 
                 <Button type="submit">Enviar Email</Button>
               </form>
+              <SendButton />
             </section>
           </section>
         </div>

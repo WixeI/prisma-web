@@ -21,23 +21,23 @@ function Header() {
           className="rounded-lg px-4 py-2 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
           href="#services"
         >
-          Serviços Ofertados
+          Serviços Oferecidos
         </a>
         <a
           className="rounded-lg px-4 py-2 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
-          href="#about-us"
+          href="#values"
         >
           Sobre Nós
         </a>
         <a
           className="rounded-lg px-4 py-2 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
-          href="#our-process"
+          href="#process"
         >
           Nosso Processo
         </a>
         <a
           className="flex items-center justify-center gap-2 rounded-lg border-2 border-neutral-50 px-3 py-2 transition-all hover:bg-neutral-900/20 lg:drop-shadow-[0px_1px_4px_rgba(0,0,0,1)]"
-          href="#contact-us"
+          href="#contact-form"
         >
           Entre em Contato
         </a>
@@ -67,21 +67,15 @@ function Header() {
               >
                 Serviços Ofertados
               </a>
-              <a
-                className="w-full py-4 hover:text-primary-500"
-                href="#about-us"
-              >
+              <a className="w-full py-4 hover:text-primary-500" href="#values">
                 Sobre Nós
               </a>
-              <a
-                className="w-full py-4 hover:text-primary-500"
-                href="#our-process"
-              >
+              <a className="w-full py-4 hover:text-primary-500" href="#process">
                 Nosso Processo
               </a>
               <a
                 className="flex items-center justify-center gap-2 rounded-lg border-2 border-primary-500 px-4 py-3 font-medium text-primary-500 transition-all hover:bg-primary-50"
-                href="#contact-us"
+                href="#contact-form"
               >
                 Entre em Contato
               </a>
