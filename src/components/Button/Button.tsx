@@ -29,7 +29,7 @@ const Button = <C extends React.ElementType = "button">({
           { variant, size },
           cva(
             [
-              "flex items-center justify-center gap-2 rounded-lg text-base shadow-lg transition-all",
+              "flex cursor-pointer items-center justify-center gap-2 rounded-lg text-base shadow-lg transition-all",
             ],
             {
               variants: {

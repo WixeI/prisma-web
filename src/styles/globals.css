@@ -19,3 +19,9 @@ body {
     "Helvetica Neue",
     sans-serif;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}

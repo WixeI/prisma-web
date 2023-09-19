@@ -6,39 +6,41 @@ import Step from "@/components/Step";
 import Contact from "@/components/Contact";
 // import SendButton from "@/components/SendButton";
 
-import { z } from "zod";
+import { mailDataSchema, MailData } from "@/types/mail";
+
+import { useRef } from "react";
+
 import { WhatsappLogo, PhoneCall } from "phosphor-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRef } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
 
-const schema = z.object({
-  name: z
-    .string()
-    .min(2, { message: "O nome deve ter pelo menos 2 caracteres." })
-    .max(50, { message: "O nome não pode ter mais que 50 caracteres" }),
-  email: z
-    .string()
-    .min(2, { message: "O email deve ter pelo menos 2 caracteres" })
-    .email({ message: "O endereço de e-mail não é válido." }),
-  topic: z.enum(["general", "digitalSolutions", "digitalPresence", "hotsites"]),
-  message: z
-    .string()
-    .min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." }),
-});
-
-type FormData = z.infer<typeof schema>;
+const postEmail = async (data: MailData) => {
+  return axios.post("/api/sendEmail", data);
+};
 
 export default function Home() {
-  const { register, handleSubmit, formState, setValue } = useForm<FormData>({
-    resolver: zodResolver(schema),
+  const sendEmailMutation = useMutation(postEmail);
+
+  const { register, handleSubmit, formState, setValue } = useForm<MailData>({
+    resolver: zodResolver(mailDataSchema),
   });
 
   const formRef = useRef<HTMLDivElement>(null);
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {};
+  const onSubmit: SubmitHandler<MailData> = async (data) => {
+    try {
+      // Call the sendEmailMutation with the form data
+      await sendEmailMutation.mutateAsync(data);
 
-  const changeFormTopic = (topic: FormData["topic"]) => {
+      // Handle success (e.g., show a success message)
+    } catch (error) {
+      // Handle error (e.g., show an error message)
+    }
+  };
+
+  const changeFormTopic = (topic: MailData["topic"]) => {
     if (formRef.current) {
       formRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -511,6 +513,7 @@ export default function Home() {
                 </label>
 
                 <Button type="submit">Enviar Email</Button>
+                <p>{sendEmailMutation.status}</p>
               </form>
               {/* <SendButton /> */}
             </section>
