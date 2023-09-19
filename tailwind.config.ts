@@ -49,6 +49,9 @@ const config: Config = {
         slideLeftAndFade:
           "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
+      screens: {
+        'max-h-600': { 'raw': '(max-height: 600px)' },
+      },
     },
   },
   plugins: [require("tailwindcss-animation-delay")],

@@ -60,7 +60,7 @@ function Header() {
               <X size="1.5rem" />
             </Popover.Close>
 
-            <nav className="flex flex-col items-center gap-2 text-end text-neutral-900 transition-all">
+            <nav className="flex flex-col items-center gap-2 text-start text-neutral-900 transition-all">
               <a
                 className="w-full py-4 hover:text-primary-500"
                 href="#services"

@@ -52,8 +52,8 @@ export default function Home() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative flex min-h-[100svh] flex-col items-start justify-center gap-8 overflow-hidden px-16">
-          <h1 className="z-10 max-w-md text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
+        <section className="relative flex min-h-[100svh] flex-col md:items-start items-center justify-center gap-8 overflow-hidden md:px-16 px-11">
+          <h1 className="z-10 max-w-md text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)] md:text-start text-center">
             Construindo o Futuro Digital do seu Negócio
           </h1>
           <Button
@@ -71,7 +71,7 @@ export default function Home() {
             <img
               src="/hero/hero-mobile.png"
               alt=""
-              className="absolute bottom-40 left-0 h-full max-w-none -rotate-12 rounded-[2rem] object-cover object-center shadow-[0px_4px_8px_rgba(0,0,0,0.5)] drop-shadow-[-16px_32px_0px_#DE2D59] md:translate-x-6 lg:left-1/3 lg:translate-x-28 lg:brightness-150"
+              className="absolute bottom-40 md:landscape:max-h-600:bottom-[7.5rem] left-0 h-full md:landscape:max-h-600:w-full max-w-none -rotate-12 rounded-[2rem] object-cover object-center shadow-[0px_4px_8px_rgba(0,0,0,0.5)] drop-shadow-[-16px_32px_0px_#DE2D59] md:translate-x-6 lg:left-1/3 lg:translate-x-28 lg:brightness-150"
             />
           </picture>
         </section>
