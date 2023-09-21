@@ -136,9 +136,9 @@ export default function Home() {
                 transition={{
                   type: "tween",
                   duration: 0.3,
-                  delay: 0.2,
                   ease: "easeInOut",
                 }}
+                viewport={{ margin: "0px 0px -200px 0px" }}
               >
                 <img
                   src="/services/digital-solutions.svg"
@@ -176,14 +176,14 @@ export default function Home() {
               {/* Hotsites */}
               <motion.div
                 className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row-reverse md:border-none md:bg-transparent md:shadow-none"
-                initial={{ opacity: 0, x: 100 }}
+                initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{
                   type: "tween",
                   duration: 0.3,
-                  delay: 0.2,
                   ease: "easeInOut",
                 }}
+                viewport={{ margin: "0px 0px -200px 0px" }}
               >
                 <img
                   src="/services/hotsites.svg"
@@ -224,9 +224,9 @@ export default function Home() {
                 transition={{
                   type: "tween",
                   duration: 0.3,
-                  delay: 0.2,
                   ease: "easeInOut",
                 }}
+                viewport={{ margin: "0px 0px -200px 0px" }}
               >
                 <img
                   src="/services/digital-presence.svg"
