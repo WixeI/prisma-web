@@ -39,7 +39,7 @@ const config: Config = {
           "100%": { transform: "translateX(100%)" },
         },
         slideLeftAndFade: {
-          from: { opacity: "0", transform: "translateX(2px)" },
+          from: { opacity: "0", transform: "translateX(100%)" },
           to: { opacity: "1", transform: "translateX(0)" },
         },
       },
@@ -47,10 +47,10 @@ const config: Config = {
         scrollPanel: "scrollPanel 80s linear infinite",
         scrollPanelInverse: "scrollPanelInverse 80s linear infinite",
         slideLeftAndFade:
-          "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+          "slideLeftAndFade 500ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
       screens: {
-        'max-h-600': { 'raw': '(max-height: 600px)' },
+        "max-h-600": { raw: "(max-height: 600px)" },
       },
     },
   },

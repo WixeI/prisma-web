@@ -10,11 +10,12 @@ import { mailDataSchema, MailData } from "@/types/mail";
 
 import { useRef } from "react";
 
-import { WhatsappLogo, PhoneCall } from "phosphor-react";
+import { WhatsappLogo, PhoneCall, CircleNotch } from "phosphor-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const postEmail = async (data: MailData) => {
   return axios.post("/api/sendEmail", data);
@@ -52,8 +53,8 @@ export default function Home() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative flex min-h-[100svh] flex-col md:items-start items-center justify-center gap-8 overflow-hidden md:px-16 px-11">
-          <h1 className="z-10 max-w-md text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)] md:text-start text-center">
+        <section className="relative flex min-h-[100svh] flex-col items-center justify-center gap-8 overflow-hidden px-11 md:items-start md:px-16">
+          <h1 className="z-10 max-w-md text-center text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-start md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
             Construindo o Futuro Digital do seu Negócio
           </h1>
           <Button
@@ -66,12 +67,12 @@ export default function Home() {
           <picture>
             <source
               media="(min-width:1024px)"
-              srcSet="/hero/hero-desktop.png"
+              srcSet="/hero/hero-desktop.jpg"
             />
             <img
-              src="/hero/hero-mobile.png"
+              src="/hero/hero-mobile.jpg"
               alt=""
-              className="absolute bottom-40 md:landscape:max-h-600:bottom-[7.5rem] left-0 h-full md:landscape:max-h-600:w-full max-w-none -rotate-12 rounded-[2rem] object-cover object-center shadow-[0px_4px_8px_rgba(0,0,0,0.5)] drop-shadow-[-16px_32px_0px_#DE2D59] md:translate-x-6 lg:left-1/3 lg:translate-x-28 lg:brightness-150"
+              className="absolute bottom-[30svh] left-0 max-w-none -rotate-12 rounded-[2rem] object-cover object-center shadow-[0px_4px_8px_rgba(0,0,0,0.5)] drop-shadow-[-24px_32px_0px_#DE2D59] md:translate-x-6 lg:left-1/3 lg:translate-x-28 lg:brightness-150 portrait:h-full landscape:w-[150%] lg:landscape:w-3/4"
             />
           </picture>
         </section>
@@ -128,7 +129,17 @@ export default function Home() {
             {/* Options */}
             <div className="flex flex-col gap-12 md:gap-16">
               {/* DigitalSolutions */}
-              <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none">
+              <motion.div
+                className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  type: "tween",
+                  duration: 0.3,
+                  delay: 0.2,
+                  ease: "easeInOut",
+                }}
+              >
                 <img
                   src="/services/digital-solutions.svg"
                   alt=""
@@ -160,10 +171,20 @@ export default function Home() {
                     Vamos Conversar
                   </Button>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Hotsites */}
-              <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row-reverse md:border-none md:bg-transparent md:shadow-none">
+              <motion.div
+                className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row-reverse md:border-none md:bg-transparent md:shadow-none"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  type: "tween",
+                  duration: 0.3,
+                  delay: 0.2,
+                  ease: "easeInOut",
+                }}
+              >
                 <img
                   src="/services/hotsites.svg"
                   alt=""
@@ -193,10 +214,20 @@ export default function Home() {
                     Quero Divulgar Algo
                   </Button>
                 </div>
-              </div>
+              </motion.div>
 
               {/* DigitalPresence */}
-              <div className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none">
+              <motion.div
+                className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  type: "tween",
+                  duration: 0.3,
+                  delay: 0.2,
+                  ease: "easeInOut",
+                }}
+              >
                 <img
                   src="/services/digital-presence.svg"
                   alt=""
@@ -227,7 +258,7 @@ export default function Home() {
                     Quero Me Destacar
                   </Button>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </section>
 
@@ -272,7 +303,7 @@ export default function Home() {
             </div>
             {/* Todo: Get wide Image for Mobile and use Picture */}
             <img
-              src="/values/values.png"
+              src="/values/values.jpg"
               alt=""
               className="z-10 -order-1 mx-auto w-full max-w-sm rounded-lg object-cover object-center shadow-lg drop-shadow-[-8px_8px_0px_#DE2D59] md:order-none md:aspect-[1/1.25] md:w-52 md:drop-shadow-[8px_8px_0px_#DE2D59]"
             />
@@ -512,8 +543,22 @@ export default function Home() {
                   )}
                 </label>
 
-                <Button type="submit">Enviar Email</Button>
-                <p>{sendEmailMutation.status}</p>
+                <Button type="submit">
+                  {sendEmailMutation.status === "idle" ? (
+                    "Enviar Email"
+                  ) : sendEmailMutation.status === "loading" ? (
+                    <CircleNotch
+                      weight="bold"
+                      size={24}
+                      className="animate-spin"
+                    />
+                  ) : sendEmailMutation.status === "success" ? (
+                    "Enviado com Sucesso!"
+                  ) : (
+                    "Erro ao Enviar"
+                  )}
+                </Button>
+                {/* <p>{sendEmailMutation.status}</p> */}
               </form>
               {/* <SendButton /> */}
             </section>
