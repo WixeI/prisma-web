@@ -5,11 +5,18 @@ import { CaretCircleRight, Icon } from "phosphor-react";
 type Props = {
   Icon: Icon;
   ariaTitle: string;
+  ariaRedirect: string;
   contact: string;
   href: string;
 };
 
-const Contact: FC<Props> = ({ Icon, ariaTitle, contact, href }) => {
+const Contact: FC<Props> = ({
+  Icon,
+  ariaTitle,
+  ariaRedirect,
+  contact,
+  href,
+}) => {
   return (
     <div className="flex cursor-text items-center justify-between rounded-lg border border-neutral-50 px-4 py-2 hover:bg-primary-400 ">
       <div className="flex items-center gap-4">
@@ -22,6 +29,7 @@ const Contact: FC<Props> = ({ Icon, ariaTitle, contact, href }) => {
         as="a"
         size="sm"
         variant="link"
+        aria-label={ariaRedirect}
         className="select-none shadow-none hover:bg-primary-300/100"
         href={href}
         target="_blank"

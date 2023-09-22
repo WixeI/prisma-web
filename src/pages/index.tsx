@@ -42,9 +42,9 @@ export default function Home() {
   };
 
   const changeFormTopic = (topic: MailData["topic"]) => {
-    if (formRef.current) {
-      formRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    // if (formRef.current) {
+    //   formRef.current.scrollIntoView({ behavior: "smooth" });
+    // }
     setValue("topic", topic);
   };
 
@@ -131,14 +131,17 @@ export default function Home() {
               {/* DigitalSolutions */}
               <motion.div
                 className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none"
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  type: "tween",
-                  duration: 0.3,
-                  ease: "easeInOut",
+                //Motion
+                {...{
+                  initial: { opacity: 0, x: 100 },
+                  whileInView: { opacity: 1, x: 0 },
+                  transition: {
+                    type: "tween",
+                    duration: 0.5,
+                    ease: "easeInOut",
+                  },
+                  viewport: { margin: "0px 0px -200px 0px" },
                 }}
-                viewport={{ margin: "0px 0px -200px 0px" }}
               >
                 <img
                   src="/services/digital-solutions.svg"
@@ -165,6 +168,7 @@ export default function Home() {
                   </div>
                   <Button
                     as="a"
+                    href="#contact-form"
                     onClick={() => changeFormTopic("digitalSolutions")}
                     className="mt-2"
                   >
@@ -180,7 +184,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{
                   type: "tween",
-                  duration: 0.3,
+                  duration: 0.5,
                   ease: "easeInOut",
                 }}
                 viewport={{ margin: "0px 0px -200px 0px" }}
@@ -208,6 +212,7 @@ export default function Home() {
 
                   <Button
                     as="a"
+                    href="#contact-form"
                     onClick={() => changeFormTopic("hotsites")}
                     className="mt-2"
                   >
@@ -223,7 +228,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{
                   type: "tween",
-                  duration: 0.3,
+                  duration: 0.5,
                   ease: "easeInOut",
                 }}
                 viewport={{ margin: "0px 0px -200px 0px" }}
@@ -252,6 +257,7 @@ export default function Home() {
 
                   <Button
                     as="a"
+                    href="#contact-form"
                     onClick={() => changeFormTopic("digitalPresence")}
                     className="mt-2"
                   >
@@ -450,6 +456,7 @@ export default function Home() {
                     <Contact
                       Icon={PhoneCall}
                       ariaTitle="Ligação"
+                      ariaRedirect="Abrir Telefone para Ligar"
                       contact="(85) 9 8147-9710"
                       href="tel:+85981479710"
                     />
@@ -459,6 +466,7 @@ export default function Home() {
                     <Contact
                       Icon={WhatsappLogo}
                       ariaTitle="WhatsApp"
+                      ariaRedirect="Abrir WhatsApp"
                       contact="(85) 9 8147-9710"
                       href="https://api.whatsapp.com/send?phone=5585981479710"
                     />
