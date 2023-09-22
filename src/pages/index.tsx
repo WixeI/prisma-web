@@ -301,7 +301,7 @@ export default function Home() {
                 <p className="text-lg">
                   Além disso, utilizamos de código e design 100% feito sob
                   medida para seu negócio, para que tenha identidade própria e{" "}
-                  <span className="font-medium text-primary-500">
+                  <span className="font-medium text-primary-600">
                     se destaque na multidão!
                   </span>
                 </p>
@@ -430,7 +430,7 @@ export default function Home() {
         </div>
 
         {/* Contact */}
-        <div id="contact" className="bg-primary-500" ref={formRef}>
+        <div id="contact" className="bg-primary-600" ref={formRef}>
           {/* Background */}
           <img
             src="/misc/arrow-bg-neutral-100.svg"
@@ -480,7 +480,7 @@ export default function Home() {
               id="contact-form"
               className="flex flex-col gap-4 rounded-lg bg-neutral-50 p-6 text-neutral-900 md:w-3/5"
             >
-              <h2 className="text-2xl font-medium text-primary-500">
+              <h2 className="text-2xl font-medium text-primary-600">
                 Envie um Email
               </h2>
 
@@ -575,7 +575,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <div className="bg-primary-500">
+      <div className="bg-primary-600">
         <img
           src="/misc/arrow-up-bg-neutral-900.svg"
           alt=""

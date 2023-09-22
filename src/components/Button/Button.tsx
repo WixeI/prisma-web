@@ -35,12 +35,12 @@ const Button = <C extends React.ElementType = "button">({
               variants: {
                 variant: {
                   solid: [
-                    "bg-primary-500 text-neutral-50 hover:bg-primary-600",
+                    "bg-primary-600 text-neutral-50 hover:bg-primary-600",
                   ],
                   outline: [
-                    "border border-primary-500 bg-neutral-50 text-primary-500 hover:bg-neutral-100",
+                    "border border-primary-600 bg-neutral-50 text-primary-600 hover:bg-neutral-100",
                   ],
-                  link: ["hover:bg-primary-500/10"],
+                  link: ["hover:bg-primary-600/10"],
                 },
                 size: {
                   sm: ["px-4 py-2"],

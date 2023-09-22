@@ -61,18 +61,18 @@ function Header() {
             </Dialog.Close>
 
             <nav className="flex flex-col items-center gap-2 text-start text-neutral-900 transition-all">
-              <Dialog.Close className="w-full py-4 hover:text-primary-500">
+              <Dialog.Close className="w-full py-4 hover:text-primary-600">
                 <a href="#services">Serviços Ofertados</a>
               </Dialog.Close>
-              <Dialog.Close className="w-full py-4 hover:text-primary-500">
+              <Dialog.Close className="w-full py-4 hover:text-primary-600">
                 <a href="#values">Sobre Nós</a>
               </Dialog.Close>
-              <Dialog.Close className="w-full py-4 hover:text-primary-500">
+              <Dialog.Close className="w-full py-4 hover:text-primary-600">
                 <a href="#process">Nosso Processo</a>
               </Dialog.Close>
               <Dialog.Close>
                 <a
-                  className="flex items-center justify-center gap-2 rounded-lg border-2 border-primary-500 px-4 py-3 font-medium text-primary-500 transition-all hover:bg-primary-50"
+                  className="flex items-center justify-center gap-2 rounded-lg border-2 border-primary-600 px-4 py-3 font-medium text-primary-600 transition-all hover:bg-primary-50"
                   href="#contact-form"
                 >
                   Entre em Contato

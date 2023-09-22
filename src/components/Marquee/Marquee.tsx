@@ -8,7 +8,7 @@ type Props = {
 const Marquee: FC<Props> = ({ itemList, direction = "left" }) => {
   return (
     <>
-      <div className="flex select-none gap-4 overflow-x-hidden">
+      <div aria-hidden className="flex select-none gap-4 overflow-x-hidden">
         <ul
           className={`flex min-w-[50%] shrink-0 items-center justify-around gap-4 text-lg text-neutral-500 ${
             direction === "left"
