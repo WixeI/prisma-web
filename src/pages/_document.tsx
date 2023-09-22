@@ -7,7 +7,7 @@ export default function Document() {
       <title>Prisma Web - Soluções Tecnológicas Sob Medida</title>
       <meta
         name="description"
-        content="Prisma Web se especializa em criar soluções tecnológicas especializadas para o contexto de seu negócio. Precisa de orientação? Marque uma conversa!."
+        content="Criamos produtos especializados para o contexto de seu negócio. Precisa de orientação? Marque uma conversa!."
       />
       <meta name="author" content="Prisma Web" />
       <meta
@@ -22,7 +22,7 @@ export default function Document() {
       />
       <meta
         property="og:description"
-        content="Prisma Web se especializa em criar soluções tecnológicas especializadas para o contexto de seu negócio. Precisa de orientação? Marque uma conversa!"
+        content="Criamos produtos especializados para o contexto de seu negócio. Precisa de orientação? Marque uma conversa!"
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://prismaweb.netlify.app/" />
@@ -39,7 +39,7 @@ export default function Document() {
       />
       <meta
         name="twitter:description"
-        content="Prisma Web se especializa em criar soluções tecnológicas especializadas para o contexto de seu negócio. Precisa de orientação? Marque uma conversa!"
+        content="Criamos produtos especializados para o contexto de seu negócio. Precisa de orientação? Marque uma conversa!"
       />
       <meta
         name="twitter:image"

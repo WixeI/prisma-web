@@ -339,7 +339,7 @@ export default function Home() {
             </h1>
             <ol className="flex flex-col gap-8 md:relative md:-translate-x-1/2">
               {/* Step 1 */}
-              <div className="flex gap-3 md:gap-8">
+              <li className="flex gap-3 md:gap-8">
                 <Card
                   step="1"
                   title="Ideação"
@@ -349,10 +349,10 @@ export default function Home() {
                 />
 
                 <Step step="1" />
-              </div>
+              </li>
 
               {/* Step 2 */}
-              <div className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
+              <li className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
                 <Card
                   step="2"
                   title="Prototipação"
@@ -362,10 +362,10 @@ export default function Home() {
                 />
 
                 <Step step="2" />
-              </div>
+              </li>
 
               {/* Step 3 */}
-              <div className="flex gap-3 md:gap-8">
+              <li className="flex gap-3 md:gap-8">
                 <Card
                   step="3"
                   title="Desenvolvimento"
@@ -375,10 +375,10 @@ export default function Home() {
 
                 {/* Timeline Indicator */}
                 <Step step="3" />
-              </div>
+              </li>
 
               {/* Step 4 */}
-              <div className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
+              <li className="flex gap-3 md:relative md:translate-x-[calc(100%-2.5rem)] md:flex-row-reverse md:gap-8">
                 <Card
                   step="4"
                   title="Entrega"
@@ -389,7 +389,7 @@ export default function Home() {
 
                 {/* Timeline Indicator */}
                 <Step step="4" hasPath={false} />
-              </div>
+              </li>
             </ol>
           </section>
 
