@@ -18,19 +18,19 @@ function Header() {
 
       <nav className="hidden items-center gap-8 text-neutral-50 lg:flex">
         <a
-          className="rounded-lg px-4 py-2 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
+          className="rounded-lg px-4 py-2 transition-all hover:scale-105 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
           href="#services"
         >
           Serviços Oferecidos
         </a>
         <a
-          className="rounded-lg px-4 py-2 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
+          className="rounded-lg px-4 py-2 transition-all hover:scale-105 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
           href="#values"
         >
           Sobre Nós
         </a>
         <a
-          className="rounded-lg px-4 py-2 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
+          className="rounded-lg px-4 py-2 transition-all hover:scale-105 lg:drop-shadow-[0px_1px_1px_rgba(0,0,0,1)]"
           href="#process"
         >
           Nosso Processo

@@ -195,9 +195,8 @@ export default function Home() {
                       Sente que certos processos poderiam ser mais eficientes?
                     </p>
                     <p>
-                      Traga-os e criaremos produtos especializados para
-                      solucionar estes problemas e trazer a melhor experiência
-                      para sua empresa.
+                      Traga-os e criaremos produtos especializados para levar a
+                      melhor experiência para sua empresa.
                     </p>
                   </div>
                   <Button
@@ -249,13 +248,10 @@ export default function Home() {
 
                   <div className="flex flex-col gap-1 text-lg">
                     <p>
-                      Sites rápidos utilizados para divulgar produtos ou
+                      Sites temporários utilizados para divulgar produtos ou
                       eventos.
                     </p>
-                    <p>
-                      Costumam ter tempo limitado, sendo muito comuns em
-                      campanhas publicitárias.
-                    </p>
+                    <p>São muito comuns em campanhas publicitárias.</p>
                   </div>
 
                   <Button
@@ -307,14 +303,10 @@ export default function Home() {
 
                   <div className="flex flex-col gap-1 text-lg">
                     <p>
-                      Sua marca precisa de um endereço digital para trazer
-                      legitimidade e senso de confiança para o cliente.
+                      Um site oficial para seu negócio traz legitimidade para a
+                      marca e confiança para o cliente.
                     </p>
-                    <p>
-                      Um site institucional ou landing page é ideal, e é o
-                      diferencial para empresas que possuem presença apenas em
-                      redes sociais.
-                    </p>
+                    <p>Pode ser o diferencial entre a concorrência.</p>
                   </div>
 
                   <Button
@@ -459,9 +451,8 @@ export default function Home() {
                 <Card
                   step="1"
                   title="Ideação"
-                  description="Batemos um papo para entender sua dificuldade e acertamos
-                    juntos a melhor solução. De repende, até soluções mais
-                    simples podem ser suficientes!"
+                  description="Batemos um papo para entender sua necessidade e acertamos
+                    juntos a melhor solução."
                   animDirection="left"
                   animDelay={0}
                 />
@@ -474,9 +465,8 @@ export default function Home() {
                 <Card
                   step="2"
                   title="Prototipação"
-                  description="Após nossa conversa, vamos criar um protótipo da solução.
-                  Até este ponto, nada é cobrado e refinos são feitos durante
-                  trocas de ideias com você."
+                  description="Após nossa conversa, criamos um protótipo.
+                  Até este ponto, nada é cobrado e refinos são feitos em reuniões de alinhamento."
                   animDirection="right"
                   animDelay={0.5}
                 />
@@ -489,8 +479,7 @@ export default function Home() {
                 <Card
                   step="3"
                   title="Desenvolvimento"
-                  description="Neste ponto, já temos a ideia exata do produto que você
-                  espera. Fazemos acordos, e mãos à obra!"
+                  description="Neste ponto, temos o protótipo final aprovado. Fazemos negociações, e começamos o desenvolvimento do produto!"
                   animDirection="left"
                   animDelay={1}
                 />
@@ -504,9 +493,7 @@ export default function Home() {
                 <Card
                   step="4"
                   title="Entrega"
-                  description="As entregas são incrementais durante o desenvolvimento, para
-                  você desfrutar da solução mais cedo. Ao final, também
-                  oferecemos suporte!"
+                  description="As entregas são em formato incremental. Após a entrega final, oferecemos suporte gratuito por um mês!"
                   animDirection="right"
                   animDelay={1}
                 />
