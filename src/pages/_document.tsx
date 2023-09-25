@@ -49,6 +49,26 @@ export default function Document() {
 
       {/* Others */}
       <Head>
+        {/* Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8GKTC76PDN"
+        />
+        <Script
+          strategy="afterInteractive"
+          id="google-analytics"
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                  dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
+                gtag('config', 'G-8GKTC76PDN');
+              `,
+          }}
+        />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -60,21 +80,6 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon-borderless.svg" sizes="any" />
-
-        {/* Analytics */}
-        <Script
-          src="www.googletagmanager.com/gtag/js?id=G-8GKTC76PDN"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'G-8GKTC76PDN');
-        `}
-        </Script>
       </Head>
       <body>
         <Main />
