@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -59,6 +60,21 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon-borderless.svg" sizes="any" />
+
+        {/* Analytics */}
+        <Script
+          src="www.googletagmanager.com/gtag/js?id=G-8GKTC76PDN"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-8GKTC76PDN');
+        `}
+        </Script>
       </Head>
       <body>
         <Main />
