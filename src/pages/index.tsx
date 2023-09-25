@@ -57,7 +57,8 @@ export default function Home() {
           <motion.h1
             className="z-10 max-w-md text-center text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-start md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]"
             {...{
-              animate: { opacity: [0, 1], y: [50, 0] },
+              initial: { opacity: 0, y: 50 },
+              animate: { opacity: 1, y: 0 },
               transition: {
                 ease: "easeInOut",
                 duration: 1,
@@ -70,7 +71,8 @@ export default function Home() {
           <motion.div
             className="z-10"
             {...{
-              animate: { opacity: [0, 1], y: [50, 0] },
+              initial: { opacity: 0, y: 50 },
+              animate: { opacity: 1, y: 0 },
               transition: {
                 ease: "easeInOut",
                 duration: 1,
