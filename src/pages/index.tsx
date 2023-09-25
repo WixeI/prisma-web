@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 const postEmail = async (data: MailData) => {
   return axios.post("/api/sendEmail", data);
@@ -42,11 +43,10 @@ export default function Home() {
   };
 
   const changeFormTopic = (topic: MailData["topic"]) => {
-    // if (formRef.current) {
-    //   formRef.current.scrollIntoView({ behavior: "smooth" });
-    // }
     setValue("topic", topic);
   };
+
+  const isMobileView = useMediaQuery({ maxWidth: 768 });
 
   return (
     <div className="flex flex-col bg-neutral-50 text-neutral-900">
@@ -54,16 +54,39 @@ export default function Home() {
       <main>
         {/* Hero */}
         <section className="relative flex min-h-[100svh] flex-col items-center justify-center gap-8 overflow-hidden px-11 md:items-start md:px-16">
-          <h1 className="z-10 max-w-md text-center text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-start md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]">
-            Construindo o Futuro Digital do seu Negócio
-          </h1>
-          <Button
-            as="a"
-            href="#services"
-            className="z-10 shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg"
+          <motion.h1
+            className="z-10 max-w-md text-center text-3xl font-medium text-neutral-50 drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)] md:text-start md:text-4xl lg:text-neutral-900 lg:drop-shadow-[0px_2px_2px_rgba(0,0,0,0.25)]"
+            {...{
+              animate: { opacity: [0, 1], y: [50, 0] },
+              transition: {
+                ease: "easeInOut",
+                duration: 1,
+                delay: 0.2,
+              },
+            }}
           >
-            Explore Nossas Soluções
-          </Button>
+            Construindo o Futuro Digital do seu Negócio
+          </motion.h1>
+          <motion.div
+            className="z-10"
+            {...{
+              animate: { opacity: [0, 1], y: [50, 0] },
+              transition: {
+                ease: "easeInOut",
+                duration: 1,
+                delay: 0.4,
+              },
+            }}
+          >
+            <Button
+              as="a"
+              href="#services"
+              className="shadow-[0px_4px_8px_rgba(0,0,0,0.5)] md:text-lg"
+            >
+              Explore Nossas Soluções
+            </Button>
+          </motion.div>
+
           <picture>
             <source
               media="(min-width:1024px)"
@@ -132,16 +155,27 @@ export default function Home() {
               <motion.div
                 className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none"
                 //Motion
-                {...{
-                  initial: { opacity: 0, x: 100 },
-                  whileInView: { opacity: 1, x: 0 },
-                  transition: {
-                    type: "tween",
-                    duration: 0.5,
-                    ease: "easeInOut",
-                  },
-                  viewport: { margin: "0px 0px -200px 0px" },
-                }}
+                {...(isMobileView
+                  ? {
+                      initial: { opacity: 0, y: 25 },
+                      whileInView: { opacity: 1, y: 0 },
+                      transition: {
+                        type: "tween",
+                        duration: 0.5,
+                        ease: "easeInOut",
+                      },
+                      viewport: { once: true },
+                    }
+                  : {
+                      initial: { opacity: 0, x: 100 },
+                      whileInView: { opacity: 1, x: 0 },
+                      transition: {
+                        type: "tween",
+                        duration: 0.5,
+                        ease: "easeInOut",
+                      },
+                      viewport: { once: true },
+                    })}
               >
                 <img
                   src="/services/digital-solutions.svg"
@@ -180,14 +214,28 @@ export default function Home() {
               {/* Hotsites */}
               <motion.div
                 className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row-reverse md:border-none md:bg-transparent md:shadow-none"
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  type: "tween",
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-                viewport={{ margin: "0px 0px -200px 0px" }}
+                //Motion
+                {...(isMobileView
+                  ? {
+                      initial: { opacity: 0, y: 25 },
+                      whileInView: { opacity: 1, y: 0 },
+                      transition: {
+                        type: "tween",
+                        duration: 0.5,
+                        ease: "easeInOut",
+                      },
+                      viewport: { once: true },
+                    }
+                  : {
+                      initial: { opacity: 0, x: -100 },
+                      whileInView: { opacity: 1, x: 0 },
+                      transition: {
+                        type: "tween",
+                        duration: 0.5,
+                        ease: "easeInOut",
+                      },
+                      viewport: { once: true },
+                    })}
               >
                 <img
                   src="/services/hotsites.svg"
@@ -224,14 +272,28 @@ export default function Home() {
               {/* DigitalPresence */}
               <motion.div
                 className="z-10 flex flex-col gap-8 rounded-lg border border-neutral-100 bg-neutral-50/70 px-4 py-8 shadow-lg backdrop-blur-md md:flex-row md:border-none md:bg-transparent md:shadow-none"
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  type: "tween",
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-                viewport={{ margin: "0px 0px -200px 0px" }}
+                //Motion
+                {...(isMobileView
+                  ? {
+                      initial: { opacity: 0, y: 25 },
+                      whileInView: { opacity: 1, y: 0 },
+                      transition: {
+                        type: "tween",
+                        duration: 0.5,
+                        ease: "easeInOut",
+                      },
+                      viewport: { once: true },
+                    }
+                  : {
+                      initial: { opacity: 0, x: 100 },
+                      whileInView: { opacity: 1, x: 0 },
+                      transition: {
+                        type: "tween",
+                        duration: 0.5,
+                        ease: "easeInOut",
+                      },
+                      viewport: { once: true },
+                    })}
               >
                 <img
                   src="/services/digital-presence.svg"
@@ -270,16 +332,70 @@ export default function Home() {
 
           {/* Background */}
           <div className="select-none">
-            <img
+            <motion.img
               src="/misc/triangle-primary-50.svg"
               alt=""
               className="absolute -left-20 top-8 -rotate-45 md:scale-150"
+              {...{
+                animate: {
+                  x: [0, 25],
+                  y: [0, 25],
+                  rotate: [0, 8, -16],
+                },
+                transition: {
+                  x: {
+                    ease: "easeInOut",
+                    duration: 20,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                  },
+                  y: {
+                    ease: "easeInOut",
+                    duration: 10,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                  },
+                  rotate: {
+                    ease: "easeInOut",
+                    duration: 20,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                  },
+                },
+              }}
             />
 
-            <img
+            <motion.img
               src="/misc/triangle-primary-50.svg"
               alt=""
               className="absolute -right-20 bottom-1/3 -rotate-45 md:scale-150"
+              {...{
+                animate: {
+                  x: [0, -25],
+                  y: [0, 25],
+                  rotate: [0, 8, -16],
+                },
+                transition: {
+                  x: {
+                    ease: "easeInOut",
+                    duration: 20,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                  },
+                  y: {
+                    ease: "easeInOut",
+                    duration: 10,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                  },
+                  rotate: {
+                    ease: "easeInOut",
+                    duration: 20,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                  },
+                },
+              }}
             />
           </div>
         </div>
@@ -324,7 +440,7 @@ export default function Home() {
         </div>
 
         {/* Process */}
-        <div id="process" className="relative overflow-x-hidden bg-neutral-100">
+        <div id="process" className="relative overflow-hidden bg-neutral-100">
           {/* Background */}
           <img
             src="/misc/arrow-bg-neutral-50.svg"
@@ -346,6 +462,8 @@ export default function Home() {
                   description="Batemos um papo para entender sua dificuldade e acertamos
                     juntos a melhor solução. De repende, até soluções mais
                     simples podem ser suficientes!"
+                  animDirection="left"
+                  animDelay={0}
                 />
 
                 <Step step="1" />
@@ -359,9 +477,11 @@ export default function Home() {
                   description="Após nossa conversa, vamos criar um protótipo da solução.
                   Até este ponto, nada é cobrado e refinos são feitos durante
                   trocas de ideias com você."
+                  animDirection="right"
+                  animDelay={0.5}
                 />
 
-                <Step step="2" />
+                <Step step="2" animDelay={0.5} />
               </li>
 
               {/* Step 3 */}
@@ -371,10 +491,12 @@ export default function Home() {
                   title="Desenvolvimento"
                   description="Neste ponto, já temos a ideia exata do produto que você
                   espera. Fazemos acordos, e mãos à obra!"
+                  animDirection="left"
+                  animDelay={1}
                 />
 
                 {/* Timeline Indicator */}
-                <Step step="3" />
+                <Step step="3" animDelay={1} />
               </li>
 
               {/* Step 4 */}
@@ -385,6 +507,8 @@ export default function Home() {
                   description="As entregas são incrementais durante o desenvolvimento, para
                   você desfrutar da solução mais cedo. Ao final, também
                   oferecemos suporte!"
+                  animDirection="right"
+                  animDelay={1}
                 />
 
                 {/* Timeline Indicator */}
@@ -395,36 +519,115 @@ export default function Home() {
 
           {/* Background */}
           <div className="select-none">
-            <img
+            <motion.img
               src="/misc/triangle-neutral-50.svg"
               alt=""
-              className="absolute -right-12 top-1/3 -translate-y-1/2 -rotate-12 scale-150"
+              className="absolute -right-12 top-1/3 -translate-y-1/2"
+              {...{
+                animate: {
+                  scale: [1.5, 2],
+                  rotate: [15, -90],
+                  y: [0, 25],
+                },
+                transition: {
+                  ease: "easeInOut",
+                  duration: 40,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                },
+              }}
             />
-            <img
+            <motion.img
               src="/misc/triangle-neutral-50.svg"
               alt=""
-              className="absolute -left-12 top-1/2 rotate-12"
+              className="absolute -left-12 top-1/2"
+              {...{
+                animate: {
+                  scale: [1, 1.5],
+                  rotate: [15, 90],
+                  y: [0, 25],
+                },
+                transition: {
+                  ease: "easeInOut",
+                  duration: 40,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                },
+              }}
             />
 
-            <img
+            <motion.img
               src="/misc/triangle-primary-500.svg"
               alt=""
-              className="absolute bottom-8 left-1/3 -translate-x-[300%] -rotate-6"
+              className="absolute bottom-0 left-8"
+              {...{
+                animate: {
+                  y: [-25, -40],
+                  rotate: [4, -4],
+                },
+                transition: {
+                  ease: "easeInOut",
+                  duration: 5,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                },
+              }}
             />
-            <img
+            <motion.img
               src="/misc/triangle-primary-500.svg"
               alt=""
-              className="absolute bottom-0 left-1/3 -translate-x-[150%] rotate-6 scale-75"
+              className="absolute bottom-0 left-1/4 hidden md:block"
+              {...{
+                animate: {
+                  scale: [0.75],
+                  y: [0, -15],
+                  rotate: [16, 8],
+                },
+                transition: {
+                  ease: "easeInOut",
+                  duration: 5,
+                  delay: 0.5,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                },
+              }}
             />
-            <img
+            <motion.img
               src="/misc/triangle-primary-500.svg"
               alt=""
-              className="absolute bottom-8 right-1/3 translate-x-[300%] rotate-12"
+              className="absolute bottom-0 right-8"
+              {...{
+                animate: {
+                  y: [-25, -40],
+                  rotate: [-4, 12],
+                },
+                transition: {
+                  ease: "easeInOut",
+                  duration: 5,
+                  delay: 0.5,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                },
+              }}
             />
-            <img
+            <motion.img
               src="/misc/triangle-primary-500.svg"
               alt=""
-              className="absolute bottom-4 right-1/3 translate-x-[150%] -rotate-12 scale-75"
+              className="absolute bottom-0 right-1/4 hidden md:block"
+              {...{
+                animate: {
+                  scale: [0.75],
+                  y: [0, -15],
+                  rotate: [-4, 4],
+                },
+                transition: {
+                  ease: "easeInOut",
+                  duration: 5,
+                  delay: 1,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                },
+              }}
             />
           </div>
         </div>
@@ -494,7 +697,7 @@ export default function Home() {
                     <input
                       {...register("name")}
                       type="text"
-                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
+                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2 transition-all focus:shadow-[0_0_0_4px] focus:shadow-primary-100/80 focus:outline-none"
                     />
                     {formState.errors.name && (
                       <p className="-mt-1 ml-2 animate-slideLeftAndFade cursor-text text-sm text-rose-500">
@@ -508,7 +711,7 @@ export default function Home() {
                     <input
                       {...register("email")}
                       type="text"
-                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
+                      className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2 transition-all focus:shadow-[0_0_0_4px] focus:shadow-primary-100/80 focus:outline-none"
                     />
                     {formState.errors.email && (
                       <p className="-mt-1 ml-2 animate-slideLeftAndFade cursor-text text-sm text-rose-500">
@@ -522,7 +725,7 @@ export default function Home() {
                   <span>Sobre o que deseja falar?</span>
                   <select
                     {...register("topic")}
-                    className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2"
+                    className="min-h-[3rem] rounded-lg border border-neutral-900 px-4 py-2 transition-all focus:shadow-[0_0_0_4px] focus:shadow-primary-100/80 focus:outline-none"
                   >
                     <option defaultChecked value="general">
                       Assunto Geral
@@ -542,7 +745,7 @@ export default function Home() {
                   <span>Sua Mensagem</span>
                   <textarea
                     {...register("message")}
-                    className="min-h-[15rem] resize-y rounded-lg border border-neutral-900 px-4 py-2 text-base md:min-h-[12rem]"
+                    className="min-h-[15rem] resize-y rounded-lg border border-neutral-900 px-4 py-2 text-base transition-all focus:shadow-[0_0_0_4px] focus:shadow-primary-100/80 focus:outline-none md:min-h-[12rem]"
                   />
                   {formState.errors.message && (
                     <p className="-mt-1 ml-2 animate-slideLeftAndFade cursor-text text-sm text-rose-500">
