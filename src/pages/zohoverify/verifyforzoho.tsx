@@ -3,3 +3,5 @@ function VerifyForZoho() {
     <>17505651</>
   );
 }
+
+export default VerifyForZoho;
